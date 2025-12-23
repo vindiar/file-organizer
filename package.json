@@ -1,0 +1,37 @@
+{
+  "name": "file-organizer-ai",
+  "version": "1.0.0",
+  "description": "AI-powered file organizer CLI - automatically organize folders using AI",
+  "main": "dist/index.js",
+  "bin": {
+    "vync": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "file-organizer",
+    "ai",
+    "cli",
+    "opencode"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.0.0",
+    "ai": "^4.0.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.0",
+    "inquirer": "^12.0.0",
+    "ora": "^8.1.0"
+  }
+}
