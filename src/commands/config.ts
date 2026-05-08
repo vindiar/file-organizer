@@ -68,7 +68,7 @@ export async function configCommand(action?: string, key?: string, value?: strin
     {
       type: 'password',
       name: 'apiKey',
-      message: 'OpenCode Zen API Key:',
+      message: 'Gemini API Key:',
       default: currentApiKey ? '(keep existing)' : undefined,
       mask: '*'
     },
