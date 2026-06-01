@@ -5,6 +5,7 @@ export interface FileInfo {
   extension: string;
   size: number;
   modifiedAt: Date;
+  hash?: string; // MD5 hash for duplicate detection
 }
 
 // Category assigned by AI
@@ -13,6 +14,8 @@ export interface CategoryResult {
   category: string;
   confidence: number;
   reason?: string;
+  newName?: string; // Suggested clean name (smart rename)
+  isDuplicate?: boolean;
 }
 
 // Organization result
@@ -22,6 +25,7 @@ export interface OrganizeResult {
   fromPath: string;
   toPath: string;
   category: string;
+  newName?: string;
   error?: string;
 }
 
@@ -32,13 +36,35 @@ export interface OrganizeOptions {
   interactive?: boolean;
   recursive?: boolean;
   extensions?: string[];
+  smartRename?: boolean;
+  multimodal?: boolean;
+  detectDuplicates?: boolean;
+  dateFormat?: string;
+  report?: boolean;
 }
 
 // Configuration
 export interface Config {
+  provider: 'gemini' | 'openrouter' | 'groq';
   apiKey?: string;
+  geminiApiKey?: string;
+  openRouterApiKey?: string;
+  groqApiKey?: string;
   defaultCategories: string[];
   model: string;
+}
+
+// History of file organization for undoing
+export interface FileMoveOperation {
+  originalPath: string;
+  newPath: string;
+}
+
+export interface HistoryEntry {
+  id: string;
+  timestamp: string;
+  targetDir: string;
+  operations: FileMoveOperation[];
 }
 
 // Default categories for file organization
